@@ -1,0 +1,118 @@
+/* RESET GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* LAYOUT BASE */
+html {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: #0b0b0d;
+  color: white;
+  font-family: "Cinzel", serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* SECCIONES */
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* TITULOS */
+h1, h2, h3 {
+  color: white;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.5px;
+}
+
+/* PARRAFOS */
+p {
+  color: #ddd;
+  margin-top: 8px;
+}
+
+/* GRILLA */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* TARJETAS */
+.card {
+  background: #1c1c1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 20px;
+  overflow: hidden;
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+}
+.card:hover {
+  background: #222;
+  transform: translateY(-5px);
+}
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* FORMULARIOS */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #1c1c1e;
+  color: #fff;
+  font-family: "Cinzel", serif;
+}
+
+/* LINKS CONTACTO */
+.contact-info a {
+  color: #7aaaff;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0b0d;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4b06a, #8a6b32);
+  border-radius: 10px;
+  border: 2px solid #0b0b0d;
+  box-shadow: 0 0 6px rgba(212,176,106,0.4);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e4c884, #b7924a);
+  box-shadow: 0 0 10px rgba(212,176,106,0.7);
+}
+
+/* SAFE CONTAINER */
+.safe-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 60px;
+}

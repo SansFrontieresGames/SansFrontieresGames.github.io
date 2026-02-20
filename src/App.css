@@ -1,0 +1,44 @@
+/* ============================
+   RESET GLOBAL
+============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================
+   BASE HTML Y BODY
+============================ */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: #0b0b0d;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* evita saltos horizontales */
+}
+
+/* ============================
+   ROOT
+============================ */
+#root {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh;
+}
+
+/* ============================
+   MAIN (DEBAJO DEL NAVBAR)
+============================ */
+main {
+
+  width: 100%;
+  display: block;
+
+  /* ESTE ES EL FIX IMPORTANTE */
+  padding-top: 75px;  
+  /* si querés más espacio al hacer shrink */
+  /* padding-top: 80px; */
+}

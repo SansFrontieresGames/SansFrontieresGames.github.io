@@ -1,0 +1,150 @@
+
+
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 160px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+  overflow: hidden;
+
+  background: #0b0b0d;
+}
+
+
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(212, 176, 106, 0.10) 0%,
+    rgba(212, 176, 106, 0.06) 25%,
+    rgba(0, 0, 0, 0.7) 55%,
+    #0b0b0d 80%
+  );
+
+  animation: haloPulse 6s ease-in-out infinite;
+  filter: blur(35px);
+  z-index: 0;
+}
+
+@keyframes haloPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.07);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.65;
+  }
+}
+
+
+.home-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(45px);
+  opacity: 0.55;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(212,176,106,0.22) 0%,
+    rgba(212,176,106,0.10) 35%,
+    rgba(212,176,106,0.00) 70%
+  );
+  animation: floaty 7s ease-in-out infinite;
+}
+
+.home-orb--a {
+  width: 340px;
+  height: 340px;
+  top: 18%;
+  left: 10%;
+}
+
+.home-orb--b {
+  width: 420px;
+  height: 420px;
+  bottom: 10%;
+  right: 6%;
+  animation-duration: 9s;
+}
+
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0px); }
+}
+
+
+.home-hero {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  text-align: center;
+  padding: 0 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.home-hero h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+  text-shadow: 0 0 12px rgba(212, 176, 106, 0.12);
+}
+
+.home-hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #e9e9e9;
+}
+
+.home-hero-actions {
+  display: flex;
+  justify-content: center;
+}
+
+
+.home-hero-btn {
+  margin-top: 20px;
+  padding: 14px 32px;
+  border-radius: 10px;
+
+  background: rgba(212, 176, 106, 0.15);
+  border: 1px solid rgba(212, 176, 106, 0.4);
+  color: rgb(212, 176, 106);
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.home-hero-btn:hover {
+  background: rgba(212, 176, 106, 0.30);
+  border-color: rgb(212, 176, 106);
+}
