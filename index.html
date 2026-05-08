@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sans Frontieres</title>
+
+    <!-- EVITA FLASH BLANCO ANTES DE QUE REACT CARGUE -->
+    <style>
+      html,
+      body {
+        background: #0b0b0d !important;
+        color: white;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      /* también evita flicker cuando React monta el root */
+      #root {
+        background: #0b0b0d !important;
+        min-height: 100vh;
+      }
+    </style>
+
+    <!-- GOOGLE FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-D0Ttz-4s.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BqZsXfF0.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
