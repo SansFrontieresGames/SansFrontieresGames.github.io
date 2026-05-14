@@ -1,9 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./Equipo.css";
-import kusImg from "../../assets/kus.jpg";
+const images = import.meta.glob('../../assets/Imagenes/*.{png,jpg,jpeg,svg}', { eager: true });
 
-
+const getImg = (name) => {
+  const lower = name.toLowerCase();
+  const key = Object.keys(images).find(p => p.toLowerCase().includes(lower));
+  const mod = images[key];
+  return mod ? (mod.default || mod) : "/img/placeholder.png";
+};
 const page = {
   hidden: { opacity: 0, y: 18 },
   show: {
@@ -29,37 +34,55 @@ export default function Equipo() {
       nombre: "Jehosua",
       rol: "Game Director and Lead Programmer",
       desc: "Experto en sistemas, frontend y experiencias interactivas.",
-      img: "/img/ceo.jpg",
+      img: getImg('jehosua'),
     },
     {
       nombre: "Kenneth Umaña (Kus)",
       rol: "Lead Designer and Programmer",
       desc: "APIs, backend, bases de datos y optimización.",
-      img: kusImg,
+      img: getImg('kus'),
     },
     {
       nombre: "Andres",
       rol: "Lead Animator",
       desc: "Animación, ritmo visual y dirección artística.",
-      img: "/img/disenador.jpg",
+      img: getImg('huesos'),
     },
     {
       nombre: "Kendall",
       rol: "Animator and Technical Artist",
       desc: "Da vida a personajes y mundos interactivos.",
-      img: "/img/animador.jpg",
+      img: getImg('animador'),
     },
     {
       nombre: "Estefania",
       rol: "2D & Character Artist",
       desc: "Arte 2D, personajes y estilo visual.",
-      img: "/img/animador.jpg",
+      img: getImg('fanny'),
     },
     {
       nombre: "Jorge",
       rol: "SFX & Music Composer",
       desc: "Diseño sonoro y música para experiencias memorables.",
-      img: "/img/animador.jpg",
+      img: getImg('jorge'),
+    },
+    {
+      nombre: "Jorge",
+      rol: "SFX & Music Composer",
+      desc: "Diseño sonoro y música para experiencias memorables.",
+      img: getImg('jorge'),
+    },
+    {
+      nombre: "Jorge",
+      rol: "SFX & Music Composer",
+      desc: "Diseño sonoro y música para experiencias memorables.",
+      img: getImg('jorge'),
+    },
+    {
+      nombre: "Jorge",
+      rol: "SFX & Music Composer",
+      desc: "Diseño sonoro y música para experiencias memorables.",
+      img: getImg('jorge'),
     },
   ];
 
