@@ -22,6 +22,9 @@ body {
   background: #0b0b0d;
   color: white;
   overflow-x: hidden;
+  font-family: "Cinzel", serif;
+  /* Pon aquí tu fuente principal */
+  line-height: 1.6;
 }
 
 /* estilos del template que no afectan layout */
@@ -30,6 +33,7 @@ a {
   color: #646cff;
   text-decoration: none;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -45,6 +49,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
