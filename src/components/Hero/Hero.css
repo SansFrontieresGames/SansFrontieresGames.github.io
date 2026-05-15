@@ -1,6 +1,6 @@
 .hero-section {
   width: 100%;
-min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,6 +13,7 @@ min-height: calc(100vh - 75px);
   font-size: 3rem;
   margin-bottom: 1rem;
   font-weight: 700;
+  transition: font-size 0.3s ease;
 }
 
 .hero-section p {
@@ -20,4 +21,40 @@ min-height: calc(100vh - 75px);
   max-width: 700px;
   margin: 0 auto;
   opacity: 0.8;
+  transition: font-size 0.3s ease;
+}
+
+/* Regla de protección para imágenes/visuales dentro del Hero */
+.hero-section img,
+.hero-section video,
+.hero-section picture {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 1.5rem auto 0;
+  border-radius: 8px;
+  /* Opcional: suaviza los bordes del contenido visual */
+}
+
+/* =========================================
+   AJUSTES PARA MÓVILES
+========================================= */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 0 1rem;
+    min-height: calc(100vh - 60px);
+    /* Ajustado a la altura del navbar-scrolled/móvil */
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+    /* Reducción drástica para evitar que ocupe toda la pantalla */
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+    /* Ajuste para lectura cómoda a una mano */
+  }
 }

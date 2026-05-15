@@ -24,6 +24,10 @@ export default function Hero() {
         experiencias digitales memorables, fusionando creatividad, tecnología y
         un diseño centrado en el jugador.
       </p>
+
+      {/* Si decides añadir una imagen en el futuro, hazlo aquí. 
+          Ejemplo: <img src="/img/hero-art.webp" alt="Arte principal de Sans Frontieres" /> 
+          El CSS ya está preparado para hacerla responsiva. */}
     </section>
   );
 }

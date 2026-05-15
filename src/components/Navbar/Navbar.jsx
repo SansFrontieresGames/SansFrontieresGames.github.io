@@ -10,7 +10,9 @@ import "./Navbar.css";
 export default function Navbar() {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  // Manejar el scroll del Navbar
   useEffect(() => {
     const handleScroll = () => {
       const scrolledY =
@@ -26,6 +28,34 @@ export default function Navbar() {
       document.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Cerrar el menú si cambia la ruta
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  // Accesibilidad: Cerrar con Escape y bloquear scroll cuando está abierto
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [menuOpen]);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const links = [
     { path: "/", label: "Inicio" },
@@ -75,8 +105,24 @@ export default function Navbar() {
           />
         </div>
 
+        {/* BOTÓN HAMBURGUESA (SOLO MÓVIL) */}
+        <button
+          className="hamburger-btn"
+          onClick={toggleMenu}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          aria-label="Alternar menú de navegación"
+        >
+          <span className={`hamburger-line ${menuOpen ? "open-1" : ""}`}></span>
+          <span className={`hamburger-line ${menuOpen ? "open-2" : ""}`}></span>
+          <span className={`hamburger-line ${menuOpen ? "open-3" : ""}`}></span>
+        </button>
+
         {/* LINKS */}
-        <div className="navbar-links">
+        <div
+          id="mobile-menu"
+          className={`navbar-links ${menuOpen ? "is-open" : ""}`}
+        >
           {links.map((item, index) => {
             const active = location.pathname === item.path;
             return (
