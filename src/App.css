@@ -34,19 +34,19 @@ html, body {
    MAIN (DEBAJO DEL NAVBAR)
 ============================ */
 main {
-
+  transition: padding-top 0.25s ease;
   width: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 75px);
 
-  /* ESTE ES EL FIX IMPORTANTE */
   padding-top: 75px;
-  /* si querés más espacio al hacer shrink */
-  /* padding-top: 80px; */
 }
 
 /* Ajuste móvil para el main */
 @media (max-width: 768px) {
   main {
     padding-top: 60px;
+    min-height: calc(100vh - 60px);
   }
 }

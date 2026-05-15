@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999999;
+  z-index: 1000;
   background: rgba(11, 11, 13, 0.92);
   border-bottom: 1px solid rgba(212, 176, 106, 0.25);
   backdrop-filter: blur(6px);
@@ -176,6 +176,8 @@
     width: 70vw;
     max-width: 320px;
     height: 100vh;
+    height: 100dvh;
+    /* Mejor soporte para barras de navegador móvil */
     background: rgba(11, 11, 13, 0.98);
     border-left: 1px solid rgba(212, 176, 106, 0.25);
     flex-direction: column;
@@ -183,6 +185,7 @@
     padding: 20px;
     transition: right 0.4s ease;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
   }
 
   .navbar-links.is-open {
@@ -201,5 +204,12 @@
     justify-content: center;
     padding: 15px;
     /* Aumentar área táctil en móvil */
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar-text-logo {
+    width: 130px;
+    /* Logo más pequeño en teléfonos muy angostos */
   }
 }

@@ -15,6 +15,16 @@
   color-scheme: dark;
 }
 
+/* Responsive Media Reset */
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 body {
   margin: 0;
   width: 100%;
@@ -50,6 +60,22 @@ button {
   transition: border-color 0.25s;
 }
 
-button:hover {
+button:hover,
+button:focus-visible {
   border-color: #646cff;
+  outline: none;
+}
+
+/* Feedback for mobile touch */
+button:active {
+  transform: scale(0.98);
+  background-color: #2a2a2a;
+}
+
+/* Global Container for consistent mobile margins */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }

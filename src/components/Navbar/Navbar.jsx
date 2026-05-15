@@ -73,6 +73,12 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
     >
       <div className="navbar-inner">
+        {/* Overlay para cerrar el menú al hacer click fuera */}
+        <div 
+          className={`navbar-overlay ${menuOpen ? "is-visible" : ""}`} 
+          onClick={() => setMenuOpen(false)}
+        />
+
         {/* LOGO IZQUIERDO */}
         <div className="navbar-left">
           <div className="navbar-logo-wrapper">
