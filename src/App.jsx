@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { LazyMotion, domAnimation } from "framer-motion";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Projects from "./pages/Proyectos/Proyectos";
@@ -8,8 +9,8 @@ import Equipo from "./pages/Equipo/Equipo";
 
 export default function App() {
   return (
-    <>
-      <Navbar /> 
+    <LazyMotion features={domAnimation} strict>
+      <Navbar />
 
       <main>
         <Routes>
@@ -20,6 +21,6 @@ export default function App() {
           <Route path="/equipo" element={<Equipo />} />
         </Routes>
       </main>
-    </>
+    </LazyMotion>
   );
 }

@@ -45,7 +45,7 @@ export default function Tabs() {
         active={activeTab === "servicios"}
       >
         Listado de servicios: desarrollo de videojuegos, animación 3D,
-        consultoría técnica, QA, porting, arte conceptual...
+        consultoría técnica, QA, porting, arte conceptual…
       </TabContent>
 
       <TabContent
