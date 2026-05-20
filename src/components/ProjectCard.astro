@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string
+  description: string
+  image: string
+  index?: number
+}
+
+const { title, description, image, index = 0 } = Astro.props
+---
+
+<article
+  class="project-card"
+  data-card
+  style={`--card-i: ${index}`}
+>
+  <div class="card-bg-pulse" aria-hidden="true"></div>
+
+  <div class="card-media">
+    <img
+      src={image}
+      alt={title}
+      loading="lazy"
+      onerror="this.src='/img/placeholder.png'; this.onerror=null;"
+    />
+  </div>
+
+  <div class="card-body">
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <span class="card-cta">Ver detalles &rarr;</span>
+  </div>
+</article>

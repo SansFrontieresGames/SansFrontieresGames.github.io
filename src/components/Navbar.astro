@@ -1,0 +1,25 @@
+---
+import logoPath from '../assets/logo.png'
+
+const currentPath = Astro.url?.pathname || '/'
+---
+
+<header>
+  <nav class="site-nav" aria-label="Principal">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src={logoPath.src} alt="Sans Frontieres" height="40" width="auto"/>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/" aria-current={currentPath === '/' || currentPath === '/index.html' ? 'page' : undefined}>Inicio</a></li>
+        <li><a href="/proyectos" aria-current={currentPath.startsWith('/proyectos') ? 'page' : undefined}>Proyectos</a></li>
+        <li><a href="/servicios" aria-current={currentPath.startsWith('/servicios') ? 'page' : undefined}>Servicios</a></li>
+        <li><a href="/contacto" aria-current={currentPath.startsWith('/contacto') ? 'page' : undefined}>Contacto</a></li>
+        <li><a href="/equipo" aria-current={currentPath.startsWith('/equipo') ? 'page' : undefined}>Equipo</a></li>
+      </ul>
+
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+    </div>
+  </nav>
+</header>

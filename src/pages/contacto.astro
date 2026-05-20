@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Navbar from '../components/Navbar.astro'
+import ContactForm from '../components/ContactForm.astro'
+---
+
+<BaseLayout title="Contacto — Sans Frontieres">
+  <Navbar />
+
+  <main id="main-content" class="contact-page">
+    <div class="contact-container">
+      <header class="contact-header">
+        <h1>Contacto</h1>
+        <p>¿Tienes un proyecto? Escríbenos y te responderemos pronto.</p>
+      </header>
+
+      <h2 class="visually-hidden">Formulario e informacion de contacto</h2>
+      <div class="contact-layout">
+        <ContactForm />
+
+        <aside class="contact-info">
+          <div class="info-box">
+            <h3>Escríbenos</h3>
+            <p><strong>Correo:</strong> contacto@sansfrontieres.com</p>
+          </div>
+
+          <div class="info-box">
+            <h3>Ubicación</h3>
+            <p><strong>San José, Costa Rica</strong> — Disponible internacionalmente</p>
+          </div>
+
+          <div class="info-box info-social">
+            <h3>Redes</h3>
+            <p>
+              <strong>Instagram:</strong>{' '}
+              <a
+                href="https://www.instagram.com/sansfrontieresgames"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @sansfrontieresgames
+              </a>
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

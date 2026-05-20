@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Navbar from '../components/Navbar.astro'
+import TeamCard from '../components/TeamCard.astro'
+
+const loaded = import.meta.glob('../assets/Imagenes/*.{png,jpg,jpeg,svg}', { eager: true })
+
+function getImageFor(name) {
+  const lower = name.toLowerCase()
+  for (const [path, mod] of Object.entries(loaded)) {
+    if (path.toLowerCase().includes(lower)) {
+      return mod.default?.src || mod.default || '/img/placeholder.png'
+    }
+  }
+  return '/img/placeholder.png'
+}
+
+const team = [
+  {
+    name: 'Jehosua',
+    role: 'Game Director and Lead Programmer',
+    description: 'Expert in game design, mechanics, and programming, leading the vision and development of our games.',
+    image: getImageFor('jehosua'),
+  },
+  {
+    name: 'Kenneth',
+    role: 'Game Designer and Programmer',
+    description: 'Game design and programming, crafting engaging mechanics and seamless gameplay.',
+    image: getImageFor('kus'),
+  },
+  {
+    name: 'Andres',
+    role: 'Lead Animator and Artist',
+    description: 'Animation and rigging, breathing life into characters.',
+    image: getImageFor('huesos'),
+  },
+  {
+    name: 'Kendall',
+    role: 'Art Director and Animator',
+    description: 'Bring to Life new worlds with stunning style and visual storytelling.',
+    image: getImageFor('kendall'),
+  },
+  {
+    name: 'Estefania',
+    role: '2D & Character Artist',
+    description: 'Concept Artist and Character Artist, creating captivating characters and immersive worlds.',
+    image: getImageFor('fanny'),
+  },
+  {
+    name: 'Kender',
+    role: 'Game Developer and Programmer',
+    description: 'Game development and programming, crafting engaging mechanics.',
+    image: getImageFor('kender'),
+  },
+  {
+    name: 'Daniela',
+    role: '2D and 3D Artist',
+    description: 'Bring to Life new worlds with stunning style and visual storytelling.',
+    image: getImageFor('daniela'),
+  },
+  {
+    name: 'Allison',
+    role: '2D & Character Artist',
+    description: 'Concept Artist and Character Artist, creating captivating characters and immersive worlds.',
+    image: getImageFor('allison'),
+  },
+]
+---
+
+<BaseLayout title="Equipo — Sans Frontieres">
+  <Navbar />
+
+  <main id="main-content" class="team-page">
+    <div class="team-container">
+      <h1>Nuestro Equipo</h1>
+      <p class="team-intro">Conoce a las personas detras de Sans Frontieres, expertos en desarrollo digital.</p>
+
+      <h2 class="visually-hidden">Miembros del equipo</h2>
+      <div class="team-grid" data-cards-grid>
+        {
+          team.map((m, i) => (
+            <TeamCard
+              name={m.name}
+              role={m.role}
+              description={m.description}
+              image={m.image}
+              index={i}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  import { initCardGrid } from '../scripts/animations.js'
+  initCardGrid('[data-cards-grid]', '[data-card]')
+</script>

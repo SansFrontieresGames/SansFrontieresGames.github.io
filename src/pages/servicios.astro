@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Navbar from '../components/Navbar.astro'
+import ServiceCard from '../components/ServiceCard.astro'
+
+const services = [
+  {
+    title: 'Desarrollo de Videojuegos',
+    description: 'Diseno de sistemas, UI/UX, gameplay, animaciones y mas en Unity y Unreal.',
+  },
+  {
+    title: 'Desarrollo Web',
+    description: 'Sitios modernos, rapidos, responsive y optimizados.',
+  },
+  {
+    title: 'Diseno UI/UX',
+    description: 'Interfaces limpias, intuitivas y atractivas.',
+  },
+  {
+    title: 'Branding',
+    description: 'Identidad visual profesional para tu marca o producto.',
+  },
+]
+---
+
+<BaseLayout title="Servicios — Sans Frontieres">
+  <Navbar />
+
+  <main id="main-content" class="services-page">
+    <div class="services-container">
+      <header class="services-header">
+        <h1>Servicios</h1>
+        <p>Servicios profesionales adaptados a tus necesidades.</p>
+      </header>
+
+      <h2 class="visually-hidden">Servicios disponibles</h2>
+      <div class="services-grid" data-cards-grid>
+        {
+          services.map((s, i) => (
+            <ServiceCard
+              title={s.title}
+              description={s.description}
+              index={i}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  import { initCardGrid } from '../scripts/animations.js'
+  initCardGrid('[data-cards-grid]', '[data-card]')
+</script>
