@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Navbar from '../components/Navbar.astro'
+import Hero from '../components/Hero.astro'
+---
+
+<BaseLayout title="Sans Frontieres — Home">
+  <Navbar />
+
+  <main id="main-content" class="home-page">
+    <div class="home-orb home-orb--a" aria-hidden="true"></div>
+    <div class="home-orb home-orb--b" aria-hidden="true"></div>
+    <Hero />
+  </main>
+</BaseLayout>

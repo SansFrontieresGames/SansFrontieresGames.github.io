@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Navbar from '../components/Navbar.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+
+const projects = [
+  {
+    title: 'Proyecto A',
+    description: 'Videojuego estilo metroidvania en Unity.',
+    image: '/img/proyecto1.jpg',
+  },
+  {
+    title: 'Proyecto B',
+    description: 'Sitio web corporativo moderno.',
+    image: '/img/proyecto2.jpg',
+  },
+  {
+    title: 'Proyecto C',
+    description: 'Aplicación móvil multiplataforma.',
+    image: '/img/proyecto3.jpg',
+  },
+  {
+    title: 'Proyecto D',
+    description: 'Sistema de inventario estilo Hollow Knight.',
+    image: '/img/proyecto4.jpg',
+  },
+]
+---
+
+<BaseLayout title="Proyectos — Sans Frontieres">
+  <Navbar />
+
+  <main id="main-content" class="projects-page">
+    <div class="projects-container">
+      <h1>Proyectos</h1>
+      <p class="projects-intro">Algunos de nuestros trabajos más recientes.</p>
+
+      <h2 class="visually-hidden">Proyectos destacados</h2>
+      <div class="projects-grid" data-cards-grid>
+        {
+          projects.map((p, i) => (
+            <ProjectCard
+              title={p.title}
+              description={p.description}
+              image={p.image}
+              index={i}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  import { initCardGrid } from '../scripts/animations.js'
+  initCardGrid('[data-cards-grid]', '[data-card]')
+</script>

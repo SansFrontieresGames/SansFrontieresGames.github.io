@@ -1,44 +1,107 @@
-# React + Vite
+# Sans Frontieres — Game Studio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio web oficial de **Sans Frontieres**, un estudio de videojuegos independiente con sede en Costa Rica. Construido con React + Vite, en proceso de migración a Astro.
 
-Currently, two official plugins are available:
+**Live site:** [SansFrontieresGames.github.io](https://SansFrontieresGames.github.io)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Categoria | Tecnologia |
+|-----------|------------|
+| Framework | React 19 |
+| Build | Vite (`rolldown-vite` 7) |
+| Migracion | Astro 4 (en progreso) |
+| Routing | react-router-dom (`HashRouter`) |
+| Estilos | Bootstrap 5, CSS modules |
+| Animacion | framer-motion, GSAP |
+| Linting | ESLint 9 (flat config) |
+| Deploy | gh-pages → GitHub Pages |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Estructura del proyecto
+
+```
+src/
+  main.jsx             # Punto de entrada React + HashRouter
+  App.jsx              # Componente raiz con rutas
+  index.css            # Reset y estilos base
+  global.css           # Estilos globales legacy (React)
+  components/
+    Navbar/            # Navbar React (activo)
+    Navbar.astro       # Navbar Astro (migracion)
+    Hero/              # Hero animado con GSAP
+    TabContent/        # Componente de tabs
+  pages/
+    index.astro        # Homepage Astro (migracion)
+    Home/              # Homepage React
+    Proyectos/         # Portafolio de proyectos
+    Servicios/         # Servicios del estudio
+    Contacto/          # Formulario de contacto
+    Equipo/            # Miembros del equipo
+  layouts/
+    BaseLayout.astro   # Layout base Astro
+  scripts/
+    navbar.js          # Script vanilla para menu mobile
+  styles/
+    global.css         # Estilos globales Astro
+  assets/Imagenes/     # Fotos del equipo y logos
+public/                # Assets estaticos
+```
+
+---
+
+## Comandos
+
+| Comando | Descripcion |
+|---------|-------------|
+| `pnpm dev` | Servidor de desarrollo Vite (React) |
+| `pnpm build` | Build de produccion Vite → `dist/` |
+| `pnpm preview` | Previsualizar build de produccion |
+| `pnpm lint` | Ejecutar ESLint |
+| `pnpm deploy` | Build + deploy a GitHub Pages |
+| `pnpm astro:dev` | Servidor de desarrollo Astro |
+| `pnpm astro:build` | Build de produccion Astro |
+| `pnpm astro:preview` | Previsualizar build Astro |
+
+---
+
+## Instalacion y desarrollo
+
+```bash
+# Instalar dependencias
+pnpm install
+
+# Desarrollo (React)
+pnpm dev
+
+# Build de produccion
+pnpm build
+
+# Lint
+pnpm lint
+```
+
+---
 
 ## Deployment
 
-This project is configured for GitHub Pages deployment as a user/org page at `https://SansFrontieresGames.github.io`.
+El sitio se despliega en GitHub Pages como pagina de usuario/organizacion.
 
-### Build and deploy
+```bash
+pnpm deploy
+```
 
-1. Install dependencies:
-   - `npm install`
-2. Create a production build:
-   - `npm run build`
-3. Deploy to GitHub Pages:
-   - `npm run deploy`
+Este comando ejecuta `pnpm build` y luego publica `dist/` en la rama `gh-pages`.
 
-### Local preview
+- Se usa `HashRouter` para evitar errores 404 en GitHub Pages.
+- La propiedad `homepage` en `package.json` apunta a `https://SansFrontieresGames.github.io`.
+- Vite y Astro usan `base: '/'`.
 
-- Run `npm run preview` after `npm run build` to inspect the production output locally.
+---
 
-### Production notes
+## Migracion a Astro
 
-- The app uses `HashRouter` for client-side routing, which makes GitHub Pages navigation safe and avoids refresh/404 issues.
-- Vite outputs production files into `dist/`, and `gh-pages` publishes that folder.
-- `package.json` `homepage` is set to `https://SansFrontieresGames.github.io` for proper asset resolution on the live site.
-
-### Future website deployment
-
-- For later deployment to a standard website or custom domain, the same build process applies.
-- If you move the app to a subpath, update `package.json` `homepage` and, if needed, add `base` to `vite.config.js`.
+El proyecto esta migrando de React a Astro. La migracion se encuentra en la rama `Astro-Dev`. Consulta [AGENTS.md](./AGENTS.md) para mas detalles sobre la arquitectura dual.

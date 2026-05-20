@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string
+  description: string
+  index?: number
+}
+
+const { title, description, index = 0 } = Astro.props
+---
+
+<article
+  class="service-card"
+  data-card
+  style={`--card-i: ${index}`}
+>
+  <div class="card-bg-pulse" aria-hidden="true"></div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <span class="card-cta">Saber m&aacute;s &rarr;</span>
+</article>

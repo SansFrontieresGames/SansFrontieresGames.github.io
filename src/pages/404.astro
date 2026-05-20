@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Navbar from '../components/Navbar.astro'
+---
+
+<BaseLayout title="404 — Sans Frontieres">
+  <Navbar />
+
+  <main id="main-content" class="notfound-page">
+    <div class="notfound-content">
+      <h1>404</h1>
+      <p>La pagina que buscas no existe.</p>
+      <a href="/" class="notfound-link">Volver al inicio</a>
+    </div>
+  </main>
+</BaseLayout>
