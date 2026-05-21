@@ -75,22 +75,22 @@ src/
 ### Fase 1 — Desbloquear migracion
 
 - [x] Identificar issues del codigo actual
-- [ ] Instalar `@astrojs/react` para renderizar paginas React existentes como islands
-- [ ] Corregir ruta del logo en `Navbar.astro` (`src/assets/logo.png`)
-- [ ] Agregar imagenes faltantes de proyectos (`public/img/proyecto1-4.jpg`)
-- [ ] Agregar fotos faltantes del equipo (Kendall, Kender, Daniela, Allison)
+- [x] Instalar `@astrojs/react` para renderizar paginas React existentes como islands
+- [x] Corregir ruta del logo en `Navbar.astro` (`src/assets/logo.png`)
+- [x] Agregar imagenes faltantes de proyectos (`public/img/proyecto1-4.jpg`)
+- [x] Agregar fotos faltantes del equipo (Kendall, Kender, Daniela, Allison)
 
 ### Fase 2 — Construir paginas Astro
 
 Patron por pagina: `.astro` importa componentes con `client:load` para los interactivos.
 Datos como objetos/arrays inline en frontmatter (sin CMS).
 
-- [ ] **Homepage** — Orbs con CSS animation. Hero con GSAP stagger. CTA con CSS hover/tap.
-- [ ] **Proyectos** — GSAP ScrollTrigger stagger. Cards con CSS hover/tap. Pulse via CSS animation.
-- [ ] **Servicios** — Mismo patron que Proyectos.
-- [ ] **Contacto** — Vanilla JS form con HTML5 validation + `aria-live` para errores. Links sociales con `rel="noopener noreferrer"`.
-- [ ] **Equipo** — Astro `import.meta.glob` para imagenes. Mismo patron de cards.
-- [ ] **404** — Pagina simple con link de regreso al home.
+- [x] **Proyectos** — GSAP ScrollTrigger stagger. Cards con CSS hover/tap. Pulse via CSS animation.
+- [x] **Homepage** — Orbs con CSS animation. Hero con GSAP stagger. CTA con CSS hover/tap.
+- [x] **Servicios** — Mismo patron que Proyectos.
+- [x] **Contacto** — Vanilla JS form con HTML5 validation + `aria-live` para errores. Links sociales con `rel="noopener noreferrer"`.
+- [x] **Equipo** — Astro `import.meta.glob` para imagenes. Mismo patron de cards.
+- [x] **404** — Pagina simple con link de regreso al home.
 
 ### Fase 3 — Accesibilidad (WCAG 2.2 AA)
 
@@ -121,10 +121,10 @@ Breakpoints actuales a mantener:
 | 380px | Mobile mini |
 
 Mejoras:
-- [ ] Usar `clamp()` para tipografia fluida (evitar breakpoints discretos donde sea posible)
-- [ ] Probar en 320px, 375px, 414px, 768px, 1024px, 1280px, 1440px
-- [ ] Verificar 0 scroll horizontal en todos los viewports
-- [ ] Cards con `min()` + `auto-fit` para grids realmente fluidos
+- [x] Usar `clamp()` para tipografia fluida (evitar breakpoints discretos donde sea posible)
+- [x] Probar en 320px, 375px, 414px, 768px, 1024px, 1280px, 1440px
+- [x] Verificar 0 scroll horizontal en todos los viewports
+- [x] Cards con `min()` + `auto-fit` para grids realmente fluidos
 
 ### Fase 5 — Consolidar CSS
 
@@ -143,25 +143,25 @@ Eliminar: `src/index.css`, `src/global.css`, `src/App.css`, CSS individuales de 
 
 ### Fase 6 — Eliminar React
 
-- [ ] Desinstalar `react`, `react-dom`, `react-router-dom`, `framer-motion`
-- [ ] Desinstalar `@types/react`, `@types/react-dom`, `@vitejs/plugin-react`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`
-- [ ] Remover override de `vite` (rolldown-vite)
-- [ ] Remover scripts de Vite de `package.json`
-- [ ] Actualizar `eslint.config.js` para vanilla JS
-- [ ] Eliminar `vite.config.js`, `index.html`, `src/main.jsx`, `src/App.jsx`
-- [ ] Eliminar CSS legacy (`src/global.css`, `src/index.css`, `src/App.css`)
-- [ ] Eliminar componentes muertos (`Hero/`, `TabContent/`)
-- [ ] Eliminar navbar React (`src/components/Navbar/Navbar.jsx`, `Navbar.css`)
-- [ ] Eliminar paginas React (`src/pages/Home/`, `Proyectos/`, `Servicios/`, `Contacto/`, `Equipo/`)
+- [x] Desinstalar `react`, `react-dom`, `react-router-dom`, `framer-motion`
+- [x] Desinstalar `@types/react`, `@types/react-dom`, `@vitejs/plugin-react`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`
+- [x] Remover override de `vite` (rolldown-vite)
+- [x] Remover scripts de Vite de `package.json`
+- [x] Actualizar `eslint.config.js` para vanilla JS
+- [x] Eliminar `vite.config.js`, `index.html`, `src/main.jsx`, `src/App.jsx`
+- [x] Eliminar CSS legacy (`src/global.css`, `src/index.css`, `src/App.css`)
+- [x] Eliminar componentes muertos (`Hero/`, `TabContent/`)
+- [x] Eliminar navbar React (`src/components/Navbar/Navbar.jsx`, `Navbar.css`)
+- [x] Eliminar paginas React (`src/pages/Home/`, `Proyectos/`, `Servicios/`, `Contacto/`, `Equipo/`)
 
 ### Fase 7 — Verificar deploy
 
-- [ ] `astro build` genera `dist/` limpio
-- [ ] `astro preview` sirve correctamente
-- [ ] Probar todas las rutas como `.html`
-- [ ] Verificar `base: '/'` resuelve todos los assets
-- [ ] Ejecutar `pnpm deploy` a GitHub Pages
-- [ ] Merge de `Astro-Dev` a `main`
+- [x] `astro build` genera `dist/` limpio
+- [x] `astro preview` sirve correctamente
+- [x] Probar todas las rutas como `.html`
+- [x] Verificar `base: '/'` resuelve todos los assets
+- [x] Ejecutar `pnpm deploy` a GitHub Pages
+- [x] Merge de `Astro-Dev` a `main`
 
 ---
 

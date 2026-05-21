@@ -1,6 +1,3 @@
 {
-  "rules": {
-    "language": "en",
-    "instructions": "All communication, comments, and code must be in English only."
-  }
+  "$schema": "https://opencode.ai/config.json"
 }
