@@ -1,17 +1,17 @@
 ---
 interface Props {
-  title?: string
-  subtitle?: string
-  ctaText?: string
-  ctaLink?: string
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaLink?: string;
 }
 
 const {
-  title = 'Diseñamos Mundos Interactivos',
-  subtitle = 'Somos un estudio independiente que combina narrativa, arte y tecnología para crear videojuegos y experiencias digitales con identidad propia.',
-  ctaText = 'Explorar Nuestro Trabajo',
-  ctaLink = '/proyectos'
-} = Astro.props
+  title = "Diseñamos Mundos Interactivos",
+  subtitle = "Somos un estudio independiente que combina narrativa, arte y tecnología para crear videojuegos y experiencias digitales con identidad propia.",
+  ctaText = "Explorar Nuestro Trabajo",
+  ctaLink = "/proyectos",
+} = Astro.props;
 ---
 
 <section class="hero" id="hero" data-hero>
@@ -19,41 +19,45 @@ const {
   <p data-hero-subtitle>{subtitle}</p>
   {
     ctaText && ctaLink && (
-      <a href={ctaLink} class="hero-cta" data-hero-cta>{ctaText}</a>
+      <a href={ctaLink} class="hero-cta" data-hero-cta>
+        {ctaText}
+      </a>
     )
   }
 </section>
 
 <script>
-  import gsap from 'gsap'
+  import gsap from "gsap";
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  const hero = document.querySelector('[data-hero]')
+  const prefersReduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  const hero = document.querySelector("[data-hero]");
 
   if (!hero) {
-    console.warn('Hero: no [data-hero] element found')
+    console.warn("Hero: no [data-hero] element found");
   } else if (prefersReduced) {
-    hero.style.opacity = '1'
+    hero.style.opacity = "1";
   } else {
-    gsap.set(hero, { opacity: 0, y: 40 })
+    gsap.set(hero, { opacity: 0, y: 40 });
 
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    tl.to(hero, { opacity: 1, y: 0, duration: 1.2 })
+    tl.to(hero, { opacity: 1, y: 0, duration: 1.2 });
 
-    const titleEl = hero.querySelector('[data-hero-title]')
+    const titleEl = hero.querySelector("[data-hero-title]");
     if (titleEl) {
-      tl.from(titleEl, { opacity: 0, y: 24, duration: 0.8 }, '-=0.5')
+      tl.from(titleEl, { opacity: 0, y: 24, duration: 0.8 }, "-=0.5");
     }
 
-    const subtitleEl = hero.querySelector('[data-hero-subtitle]')
+    const subtitleEl = hero.querySelector("[data-hero-subtitle]");
     if (subtitleEl) {
-      tl.from(subtitleEl, { opacity: 0, y: 16, duration: 0.7 }, '-=0.3')
+      tl.from(subtitleEl, { opacity: 0, y: 16, duration: 0.7 }, "-=0.3");
     }
 
-    const ctaEl = hero.querySelector('[data-hero-cta]')
+    const ctaEl = hero.querySelector("[data-hero-cta]");
     if (ctaEl) {
-      tl.from(ctaEl, { opacity: 0, y: 12, duration: 0.6 }, '-=0.2')
+      tl.from(ctaEl, { opacity: 0, y: 12, duration: 0.6 }, "-=0.2");
     }
   }
 </script>
