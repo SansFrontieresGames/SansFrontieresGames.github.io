@@ -5,37 +5,37 @@ import ProjectCard from '../components/ProjectCard.astro'
 
 const projects = [
   {
-    title: 'Proyecto A',
-    description: 'Videojuego estilo metroidvania en Unity.',
-    image: '/img/proyecto1.jpg',
+    title: 'Shield Maiden',
+    description: 'Roguevania Game based in Norse Mythology.',
+    image: '/img/project1.jpg',
+  },
+  /*{
+    title: 'Project B',
+    description: 'Modern corporate website.',
+    image: '/img/project2.jpg',
   },
   {
-    title: 'Proyecto B',
-    description: 'Sitio web corporativo moderno.',
-    image: '/img/proyecto2.jpg',
+    title: 'Project C',
+    description: 'Multiplatform mobile application.',
+    image: '/img/project3.jpg',
   },
   {
-    title: 'Proyecto C',
-    description: 'Aplicación móvil multiplataforma.',
-    image: '/img/proyecto3.jpg',
-  },
-  {
-    title: 'Proyecto D',
+    title: 'Project D',
     description: 'Sistema de inventario estilo Hollow Knight.',
-    image: '/img/proyecto4.jpg',
-  },
+    image: '/img/project4.jpg',
+  },*/
 ]
 ---
 
-<BaseLayout title="Proyectos — Sans Frontieres" description="Explore our latest game development and digital projects. Metroidvania, mobile apps, web platforms and more.">
+<BaseLayout title="Projects — Sans Frontieres" description="Explore our latest game development and digital projects. Metroidvania, mobile apps, web platforms and more.">
   <Navbar />
 
   <main id="main-content" class="projects-page">
     <div class="projects-container">
-      <h1>Proyectos</h1>
-      <p class="projects-intro">Algunos de nuestros trabajos más recientes.</p>
+      <h1>Projects</h1>
+      <p class="projects-intro">Some of our latest developments.</p>
 
-      <h2 class="visually-hidden">Proyectos destacados</h2>
+      <h2 class="visually-hidden">Available Projects</h2>
       <div class="projects-grid" data-cards-grid>
         {
           projects.map((p, i) => (

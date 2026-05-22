@@ -292,16 +292,17 @@ html { scrollbar-color: rgba(212,176,106,0.3) var(--color-bg); scrollbar-width: 
   .nav-links.open {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     top: var(--nav-height, 124px);
     left: 0;
     right: 0;
-    bottom: 0;
-    background: rgba(11,11,13,0.97);
-    backdrop-filter: blur(16px);
+    bottom: 1;
+    background: rgba(11, 11, 13, 0.63); /*11,11,13,0.97*/
+    backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(16px);
     align-items: center;
     justify-content: center;
+    padding: 1rem;
     gap: 2rem;
     z-index: 25;
   }
