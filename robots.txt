@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://SansFrontieresGames.github.io/sitemap.xml
