@@ -10,11 +10,7 @@ interface Props {
 const { name, role, description, image, index = 0 } = Astro.props
 ---
 
-<article
-  class="team-card"
-  data-card
-  style={`--card-i: ${index}`}
->
+<a href="/equipo" class="team-card" data-card style={`--card-i: ${index}`}>
   <div class="card-bg-pulse" aria-hidden="true"></div>
 
   <div class="card-media">
@@ -22,6 +18,7 @@ const { name, role, description, image, index = 0 } = Astro.props
       src={image}
       alt={name}
       loading="lazy"
+      decoding="async"
       onerror="this.src='/img/placeholder.png'; this.onerror=null;"
     />
   </div>
@@ -31,4 +28,4 @@ const { name, role, description, image, index = 0 } = Astro.props
     <p class="card-role">{role}</p>
     <p class="card-desc">{description}</p>
   </div>
-</article>
+</a>

@@ -14,7 +14,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="hero" id="hero" data-hero>
+<section class="hero" id="hero" data-hero style="opacity:0; transform:translateY(40px);">
   <h1 data-hero-title>{title}</h1>
   <p data-hero-subtitle>{subtitle}</p>
   {
@@ -38,9 +38,8 @@ const {
     console.warn("Hero: no [data-hero] element found");
   } else if (prefersReduced) {
     hero.style.opacity = "1";
+    hero.style.transform = "translateY(0)";
   } else {
-    gsap.set(hero, { opacity: 0, y: 40 });
-
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     tl.to(hero, { opacity: 1, y: 0, duration: 1.2 });

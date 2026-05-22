@@ -13,10 +13,10 @@ const currentPath = Astro.url?.pathname || '/'
 
       <ul class="nav-links">
         <!-- <li><a href="/" aria-current={currentPath === '/' || currentPath === '/index.html' ? 'page' : undefined}>Inicio</a></li> -->
-        <li><a href="/proyectos" aria-current={currentPath.startsWith('/proyectos') ? 'page' : undefined}>Proyectos</a></li>
-        <li><a href="/servicios" aria-current={currentPath.startsWith('/servicios') ? 'page' : undefined}>Servicios</a></li>
-        <li><a href="/contacto" aria-current={currentPath.startsWith('/contacto') ? 'page' : undefined}>Contacto</a></li>
-        <li><a href="/equipo" aria-current={currentPath.startsWith('/equipo') ? 'page' : undefined}>Equipo</a></li>
+        <li><a href="/proyectos" aria-current={currentPath === '/proyectos' || currentPath.startsWith('/proyectos/') ? 'page' : undefined}>Projects</a></li>
+        <li><a href="/servicios" aria-current={currentPath === '/servicios' || currentPath.startsWith('/servicios/') ? 'page' : undefined}>Services</a></li>
+        <li><a href="/contacto" aria-current={currentPath === '/contacto' || currentPath.startsWith('/contacto/') ? 'page' : undefined}>Contact</a></li>
+        <li><a href="/equipo" aria-current={currentPath === '/equipo' || currentPath.startsWith('/equipo/') ? 'page' : undefined}>Team</a></li>
       </ul>
 
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>

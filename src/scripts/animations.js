@@ -20,7 +20,7 @@ export function initCardGrid(gridSelector, cardSelector) {
   if (!cards.length) return
 
   gsap.from(cards, {
-    opacity: 0,
+    autoAlpha: 0,
     y: 24,
     scale: 0.98,
     duration: 0.6,

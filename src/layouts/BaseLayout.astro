@@ -2,7 +2,10 @@
 import '../styles/global.css'
 import Footer from '../components/Footer.astro'
 
-const { title = 'Sans Frontieres' } = Astro.props
+const { title = 'Sans Frontieres', description } = Astro.props
+const siteUrl = Astro.site?.href || 'https://SansFrontieresGames.github.io/'
+const pageUrl = new URL(Astro.url.pathname, siteUrl).href
+const metaDescription = description || 'Sans Frontieres — Independent game studio crafting immersive story-driven experiences.'
 ---
 <!doctype html>
 <html lang="es">
@@ -10,17 +13,39 @@ const { title = 'Sans Frontieres' } = Astro.props
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <meta name="description" content="Sans Frontieres — Independent game studio crafting immersive story-driven experiences." />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={pageUrl} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="Sans Frontieres — Independent game studio crafting immersive story-driven experiences." />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={new URL('/img/og-image.png', siteUrl).href} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:; connect-src 'self';" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sans Frontieres",
+      "url": siteUrl,
+      "logo": new URL('/logo.png', siteUrl).href,
+      "description": metaDescription,
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San José",
+          "addressCountry": "CR"
+        }
+      },
+      "sameAs": [
+        "https://www.instagram.com/sansfrontieresgames"
+      ]
+    })} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <a href="#main-content" class="skip-link">Saltar al contenido</a>
