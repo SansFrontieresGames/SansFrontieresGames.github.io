@@ -32,7 +32,7 @@ const {
   const prefersReduced = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
-  const hero = document.querySelector("[data-hero]");
+  const hero = document.querySelector<HTMLElement>("[data-hero]");
 
   if (!hero) {
     console.warn("Hero: no [data-hero] element found");

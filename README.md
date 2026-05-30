@@ -1,6 +1,6 @@
 # Sans Frontieres — Game Studio Website
 
-Sitio web oficial de **Sans Frontieres**, un estudio de videojuegos independiente con sede en Costa Rica. Construido con React + Vite, en proceso de migración a Astro.
+Official website of **Sans Frontieres**, an independent game studio based in Costa Rica. Built with Astro, deployed on GitHub Pages.
 
 **Live site:** [SansFrontieresGames.github.io](https://SansFrontieresGames.github.io)
 
@@ -8,76 +8,65 @@ Sitio web oficial de **Sans Frontieres**, un estudio de videojuegos independient
 
 ## Tech Stack
 
-| Categoria | Tecnologia |
-|-----------|------------|
-| Framework | React 19 |
-| Build | Vite (`rolldown-vite` 7) |
-| Migracion | Astro 4 (en progreso) |
-| Routing | react-router-dom (`HashRouter`) |
-| Estilos | Bootstrap 5, CSS modules |
-| Animacion | framer-motion, GSAP |
-| Linting | ESLint 9 (flat config) |
-| Deploy | gh-pages → GitHub Pages |
+| Category    | Technology        |
+|-------------|-------------------|
+| Framework   | Astro v6.3.6      |
+| Output      | Static (SSG)      |
+| Styling     | Custom CSS        |
+| Animation   | GSAP v3.15.0 + ScrollTrigger |
+| Linting     | ESLint 9 (flat config) |
+| Deployment  | gh-pages → GitHub Pages |
 
 ---
 
-## Estructura del proyecto
+## Project Structure
 
 ```
 src/
-  main.jsx             # Punto de entrada React + HashRouter
-  App.jsx              # Componente raiz con rutas
-  index.css            # Reset y estilos base
-  global.css           # Estilos globales legacy (React)
-  components/
-    Navbar/            # Navbar React (activo)
-    Navbar.astro       # Navbar Astro (migracion)
-    Hero/              # Hero animado con GSAP
-    TabContent/        # Componente de tabs
-  pages/
-    index.astro        # Homepage Astro (migracion)
-    Home/              # Homepage React
-    Proyectos/         # Portafolio de proyectos
-    Servicios/         # Servicios del estudio
-    Contacto/          # Formulario de contacto
-    Equipo/            # Miembros del equipo
+  pages/                # Astro pages (index, proyectos, servicios, equipo, contacto, 404)
   layouts/
-    BaseLayout.astro   # Layout base Astro
-  scripts/
-    navbar.js          # Script vanilla para menu mobile
+    BaseLayout.astro    # Shared layout (head, navbar, footer)
+  components/
+    Navbar.astro        # Navbar component
+    Footer.astro        # Footer component
   styles/
-    global.css         # Estilos globales Astro
-  assets/Imagenes/     # Fotos del equipo y logos
-public/                # Assets estaticos
+    global.css          # All styles (single stylesheet)
+  scripts/
+    animations.js       # GSAP card-grid animations + reduced-motion support
+  assets/               # Images, logos, team photos
+public/
+  scripts/
+    navbar.js           # Mobile hamburger menu, scroll styling, focus trap
+  images/               # Public images
+  .nojekyll             # Prevents Jekyll from ignoring _astro/ paths
+astro.config.mjs        # Astro configuration
 ```
 
 ---
 
-## Comandos
+## Commands
 
-| Comando | Descripcion |
-|---------|-------------|
-| `pnpm dev` | Servidor de desarrollo Vite (React) |
-| `pnpm build` | Build de produccion Vite → `dist/` |
-| `pnpm preview` | Previsualizar build de produccion |
-| `pnpm lint` | Ejecutar ESLint |
-| `pnpm deploy` | Build + deploy a GitHub Pages |
-| `pnpm astro:dev` | Servidor de desarrollo Astro |
-| `pnpm astro:build` | Build de produccion Astro |
-| `pnpm astro:preview` | Previsualizar build Astro |
+| Command               | Description                              |
+|-----------------------|------------------------------------------|
+| `pnpm dev`            | Astro dev server                         |
+| `pnpm build`          | Astro production build → `dist/`         |
+| `pnpm preview`        | Preview production build                 |
+| `pnpm lint`           | Run ESLint on JS files                   |
+| `pnpm predeploy`      | Build before deploy                      |
+| `pnpm deploy`         | Build + push `dist/` to `gh-pages` branch |
 
 ---
 
-## Instalacion y desarrollo
+## Setup & Development
 
 ```bash
-# Instalar dependencias
+# Install dependencies
 pnpm install
 
-# Desarrollo (React)
+# Start dev server
 pnpm dev
 
-# Build de produccion
+# Production build
 pnpm build
 
 # Lint
@@ -88,20 +77,19 @@ pnpm lint
 
 ## Deployment
 
-El sitio se despliega en GitHub Pages como pagina de usuario/organizacion.
+The site deploys to GitHub Pages as a user/organisation site (`SansFrontieresGames.github.io`), served at the root path.
 
 ```bash
 pnpm deploy
 ```
 
-Este comando ejecuta `pnpm build` y luego publica `dist/` en la rama `gh-pages`.
-
-- Se usa `HashRouter` para evitar errores 404 en GitHub Pages.
-- La propiedad `homepage` en `package.json` apunta a `https://SansFrontieresGames.github.io`.
-- Vite y Astro usan `base: '/'`.
+- Runs `astro build` then pushes `dist/` to the `gh-pages` branch with `--nojekyll`.
+- `site` in `astro.config.mjs` is set to `https://SansFrontieresGames.github.io`.
+- `base` is `'/'` (user/org site root).
+- The `public/.nojekyll` file prevents Jekyll from ignoring `_astro/` directories.
 
 ---
 
-## Migracion a Astro
+## Architecture Notes
 
-El proyecto esta migrando de React a Astro. La migracion se encuentra en la rama `Astro-Dev`. Consulta [AGENTS.md](./AGENTS.md) para mas detalles sobre la arquitectura dual.
+For detailed architecture, GSAP patterns, and development conventions, see [AGENTS.md](./AGENTS.md).

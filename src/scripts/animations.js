@@ -9,6 +9,7 @@ export function initCardGrid(gridSelector, cardSelector) {
   if (prefersReduced) {
     document.querySelectorAll(cardSelector).forEach(el => {
       el.style.opacity = '1'
+      el.style.visibility = 'visible'
     })
     return
   }
@@ -19,6 +20,7 @@ export function initCardGrid(gridSelector, cardSelector) {
   const cards = grid.querySelectorAll(cardSelector)
   if (!cards.length) return
 
+  gsap.set(cards, { visibility: 'visible' })
   gsap.from(cards, {
     autoAlpha: 0,
     y: 24,

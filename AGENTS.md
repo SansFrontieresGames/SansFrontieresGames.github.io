@@ -46,9 +46,50 @@ Astro website for Sans Frontieres, a game studio. Formerly React + Vite, fully m
 - No Bootstrap, no React-specific CSS — all custom
 - Google Fonts (Cinzel, Cinzel Decorative) loaded from CDN in `BaseLayout.astro`
 
-### Animation library
+### GSAP / Animation
 
-- **GSAP** (`gsap`): Used via `<script>` modules in page-level `.astro` files (Servicios, Proyectos, Equipo) for scroll-triggered card animations. Imported from `../scripts/animations.js`.
+- **GSAP** (`gsap` v3.15.0 with `ScrollTrigger`): Used via `<script>` modules in page-level `.astro` files (Servicios, Proyectos, Equipo) for scroll-triggered card animations.
+- **Animation script**: `src/scripts/animations.js` exports `initCardGrid(gridSelector, cardSelector)`, which handles both standard and `prefers-reduced-motion: reduce` paths.
+- **GSAP initialisation**: `gsap.registerPlugin(ScrollTrigger)` runs inside `animations.js`. Do not re-register globally.
+
+#### Cards visibility pattern: CSS `visibility: hidden` + `gsap.from()`
+
+Cards are hidden on page load via CSS (`global.css`):
+
+```css
+[data-cards-grid] [data-card] {
+  visibility: hidden;
+}
+```
+
+GSAP reveals them via `initCardGrid()`. The correct pattern is:
+
+```js
+// Always override visibility before gsap.from()
+gsap.set(cards, { visibility: 'visible' })
+gsap.from(cards, {
+  autoAlpha: 0,
+  y: 24,
+  scale: 0.98,
+  duration: 0.6,
+  stagger: 0.12,
+  ease: 'power2.out',
+  scrollTrigger: { trigger: grid, start: 'top 75%', once: true },
+})
+```
+
+#### Footgun: `gsap.from()` with pre-hidden elements
+
+`gsap.from()` tweens FROM the provided state TO the element's computed CSS state at animation time. If the CSS sets `visibility: hidden`, the target state is hidden — so the element stays hidden after the tween completes.
+
+| Approach | Safe? | Notes |
+|---|---|---|
+| `gsap.from(el, { autoAlpha: 0 })` after CSS `visibility: hidden` | broken | Target is computed `visibility: hidden` |
+| `gsap.set(el, { visibility: 'visible' })` before `gsap.from()` | correct | Overrides CSS before tween reads computed state |
+| `gsap.fromTo(el, { autoAlpha: 0 }, { autoAlpha: 1 })` | correct | Explicitly defines both start and end states |
+| Reduced-motion path: `el.style.visibility = 'visible'` | correct | Same fix for the reduced-motion branch |
+
+**Rule of thumb:** When cards start with `visibility: hidden` in CSS, always `gsap.set()` visibility to `'visible'` before calling `gsap.from()`. Alternatively, use `gsap.fromTo()` with explicit start/end states to avoid depending on computed CSS at all.
 
 ### Vanilla JS scripts
 
