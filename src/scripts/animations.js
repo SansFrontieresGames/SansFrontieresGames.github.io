@@ -4,34 +4,40 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export function initCardGrid(gridSelector, cardSelector) {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const mm = gsap.matchMedia()
 
-  if (prefersReduced) {
+  mm.add('(prefers-reduced-motion: reduce)', () => {
     document.querySelectorAll(cardSelector).forEach(el => {
       el.style.opacity = '1'
       el.style.visibility = 'visible'
     })
-    return
-  }
-
-  const grid = document.querySelector(gridSelector)
-  if (!grid) return
-
-  const cards = grid.querySelectorAll(cardSelector)
-  if (!cards.length) return
-
-  gsap.set(cards, { visibility: 'visible' })
-  gsap.from(cards, {
-    autoAlpha: 0,
-    y: 24,
-    scale: 0.98,
-    duration: 0.6,
-    stagger: 0.12,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: grid,
-      start: 'top 75%',
-      once: true,
-    },
   })
+
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    const cards = document.querySelectorAll(cardSelector)
+    if (!cards.length) return
+
+    const isMobile = window.innerWidth < 768
+
+    ScrollTrigger.batch(cards, {
+      start: 'top 85%',
+      once: true,
+      batchMax: isMobile ? 2 : 4,
+      interval: 0.1,
+      onEnter: (batch) => {
+        gsap.set(batch, { visibility: 'visible' })
+        gsap.from(batch, {
+          autoAlpha: 0,
+          y: 24,
+          scale: 0.98,
+          duration: 0.6,
+          stagger: { amount: 0.4, from: 'start' },
+          ease: 'power2.out',
+          overwrite: 'auto',
+        })
+      },
+    })
+  })
+
+  return () => mm.revert()
 }

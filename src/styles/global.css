@@ -742,6 +742,8 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.875rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
 /* 5m. Page Layouts: Servicios */
@@ -779,6 +781,8 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.875rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
 /* 5n. Page Layouts: Contacto */
@@ -849,6 +853,8 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.875rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
 /* 5p. Page Layouts: 404 */

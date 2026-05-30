@@ -1,35 +1,45 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import Navbar from '../components/Navbar.astro'
-import ServiceCard from '../components/ServiceCard.astro'
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import TegakiText from "../components/TegakiText.astro";
 
 const services = [
   {
-    title: 'Desarrollo de Videojuegos',
-    description: 'Diseno de sistemas, UI/UX, gameplay, animaciones y mas en Unity y Unreal.',
+    title: "Desarrollo de Videojuegos",
+    description:
+      "Diseno de sistemas, UI/UX, gameplay, animaciones y mas en Unity y Unreal.",
   },
   {
-    title: 'Desarrollo Web',
-    description: 'Sitios modernos, rapidos, responsive y optimizados.',
+    title: "Desarrollo Web",
+    description: "Sitios modernos, rapidos, responsive y optimizados.",
   },
   {
-    title: 'Diseno UI/UX',
-    description: 'Interfaces limpias, intuitivas y atractivas.',
+    title: "Diseno UI/UX",
+    description: "Interfaces limpias, intuitivas y atractivas.",
   },
   {
-    title: 'Branding',
-    description: 'Identidad visual profesional para tu marca o producto.',
+    title: "Branding",
+    description: "Identidad visual profesional para tu marca o producto.",
   },
-]
+];
 ---
 
-<BaseLayout title="Servicios — Sans Frontieres" description="Professional game development, web development, UI/UX design and branding services by Sans Frontieres.">
+<BaseLayout
+  title="Servicios — Sans Frontieres"
+  description="Professional game development, web development, UI/UX design and branding services by Sans Frontieres."
+>
   <Navbar />
 
   <main id="main-content" class="services-page">
     <div class="services-container">
       <header class="services-header">
-        <h1>Services</h1>
+        <TegakiText
+          text="Services"
+          as="h1"
+          fontSize="clamp(2.5rem, 5vw, 3.5rem)"
+          speed={1.8}
+        />
         <p>Professional services tailored to your needs.</p>
       </header>
 
@@ -50,6 +60,6 @@ const services = [
 </BaseLayout>
 
 <script>
-  import { initCardGrid } from '../scripts/animations.js'
-  initCardGrid('[data-cards-grid]', '[data-card]')
+  import { initCardGrid } from "../scripts/animations.js";
+  initCardGrid("[data-cards-grid]", "[data-card]");
 </script>

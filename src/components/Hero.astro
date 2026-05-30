@@ -1,4 +1,6 @@
 ---
+import TegakiText from "./TegakiText.astro";
+
 interface Props {
   title?: string;
   subtitle?: string;
@@ -14,8 +16,19 @@ const {
 } = Astro.props;
 ---
 
-<section class="hero" id="hero" data-hero style="opacity:0; transform:translateY(40px);">
-  <h1 data-hero-title>{title}</h1>
+<section
+  class="hero"
+  id="hero"
+  data-hero
+  style="opacity:0; transform:translateY(40px);"
+>
+  <TegakiText
+    text={title}
+    as="h1"
+    data-hero-title
+    fontSize="clamp(2.25rem, 5vw, 3.5rem)"
+    speed={1.8}
+  />
   <p data-hero-subtitle>{subtitle}</p>
   {
     ctaText && ctaLink && (
@@ -28,6 +41,9 @@ const {
 
 <script>
   import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
 
   const prefersReduced = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
@@ -44,19 +60,26 @@ const {
 
     tl.to(hero, { opacity: 1, y: 0, duration: 1.2 });
 
-    const titleEl = hero.querySelector("[data-hero-title]");
-    if (titleEl) {
-      tl.from(titleEl, { opacity: 0, y: 24, duration: 0.8 }, "-=0.5");
-    }
+    tl.to({}, { duration: 0.15 });
 
     const subtitleEl = hero.querySelector("[data-hero-subtitle]");
     if (subtitleEl) {
-      tl.from(subtitleEl, { opacity: 0, y: 16, duration: 0.7 }, "-=0.3");
+      tl.from(subtitleEl, { opacity: 0, y: 16, duration: 0.7 }, "-=0.2");
     }
 
     const ctaEl = hero.querySelector("[data-hero-cta]");
     if (ctaEl) {
       tl.from(ctaEl, { opacity: 0, y: 12, duration: 0.6 }, "-=0.2");
     }
+
+    ScrollTrigger.create({
+      trigger: hero,
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+      onUpdate: (self) => {
+        hero.style.backgroundPositionY = `${-self.progress * 30}px`;
+      },
+    });
   }
 </script>

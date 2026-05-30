@@ -1,13 +1,15 @@
 ---
+import TegakiText from "./TegakiText.astro";
+
 interface Props {
-  name: string
-  role: string
-  description: string
-  image: string
-  index?: number
+  name: string;
+  role: string;
+  description: string;
+  image: string;
+  index?: number;
 }
 
-const { name, role, description, image, index = 0 } = Astro.props
+const { name, role, description, image, index = 0 } = Astro.props;
 ---
 
 <div class="team-card" data-card style={`--card-i: ${index}`}>
@@ -24,7 +26,7 @@ const { name, role, description, image, index = 0 } = Astro.props
   </div>
 
   <div class="card-body">
-    <h3>{name}</h3>
+    <TegakiText text={name} as="h3" fontSize="1.575rem" speed={1.5} />
     <p class="card-role">{role}</p>
     <p class="card-desc">{description}</p>
   </div>

@@ -11,6 +11,9 @@ importers:
       gsap:
         specifier: ^3.15.0
         version: 3.15.0
+      tegaki:
+        specifier: ^0.18.0
+        version: 0.18.0
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.4
@@ -1685,6 +1688,29 @@ packages:
     resolution: {integrity: sha512-XDpWUOPC6FEibaLzjfe0ucaV0YrOjYotGJO1WpF0Zd+n6ZGEQUsSugaoLq9QkEZtAfQIxT42UChcssDVPP3+/w==}
     engines: {node: '>=16'}
     hasBin: true
+
+  tegaki@0.18.0:
+    resolution: {integrity: sha512-iuKfmcRDoeQKu5pvqXm2aSpyIW/CNIcnnKm8ZTs2KSHWnexUpZubNFe1ADB2LKb34FW86DnJ3XMKwYQZ8xK05g==}
+    peerDependencies:
+      '@nuxt/kit': ^3.0.0 || ^4.0.0
+      harfbuzzjs: ^1.1.0
+      react: '>=18'
+      solid-js: '>=1'
+      svelte: '>=5'
+      vue: '>=3'
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+      harfbuzzjs:
+        optional: true
+      react:
+        optional: true
+      solid-js:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
 
   tiny-inflate@1.0.3:
     resolution: {integrity: sha512-pkY1fj1cKHb2seWDy0B16HeWyczlJA9/WW3u3c4z/NiWDsO3DOU5D7nhTLE9CF0yXv/QZFY7sEJmj24dK+Rrqw==}
@@ -3822,6 +3848,8 @@ snapshots:
       csso: 5.0.5
       picocolors: 1.1.1
       sax: 1.6.0
+
+  tegaki@0.18.0: {}
 
   tiny-inflate@1.0.3: {}
 

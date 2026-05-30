@@ -1,17 +1,28 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import Navbar from '../components/Navbar.astro'
-import ContactForm from '../components/ContactForm.astro'
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import ContactForm from "../components/ContactForm.astro";
+import TegakiText from "../components/TegakiText.astro";
 ---
 
-<BaseLayout title="Contacto — Sans Frontieres" description="Get in touch with Sans Frontieres. Contact us about your next game development or digital project.">
+<BaseLayout
+  title="Contacto — Sans Frontieres"
+  description="Get in touch with Sans Frontieres. Contact us about your next game development or digital project."
+>
   <Navbar />
 
   <main id="main-content" class="contact-page">
     <div class="contact-container">
       <header class="contact-header">
-        <h1>Contact</h1>
-        <p>Do you have a project? Write to us and we'll get back to you soon.</p>
+        <TegakiText
+          text="Contact"
+          as="h1"
+          fontSize="clamp(2.5rem, 5vw, 3.5rem)"
+          speed={1.8}
+        />
+        <p>
+          Do you have a project? Write to us and we'll get back to you soon.
+        </p>
       </header>
 
       <h2 class="visually-hidden">Contact Form and Information</h2>
@@ -26,13 +37,15 @@ import ContactForm from '../components/ContactForm.astro'
 
           <div class="info-box">
             <h3>Location</h3>
-            <p><strong>San José, Costa Rica</strong> — Available internationally</p>
+            <p>
+              <strong>San José, Costa Rica</strong> — Available internationally
+            </p>
           </div>
 
           <div class="info-box info-social">
             <h3>Social Media</h3>
             <p>
-              <strong>Instagram:</strong>{' '}
+              <strong>Instagram:</strong>{" "}
               <a
                 href="https://www.instagram.com/sansfrontieresgames"
                 target="_blank"

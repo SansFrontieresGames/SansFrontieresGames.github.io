@@ -1,0 +1,35 @@
+---
+import TegakiRenderer from "tegaki/astro";
+import caveatBundle from "tegaki/fonts/caveat";
+
+interface Props {
+  text: string;
+  as?: "h1" | "h2" | "h3" | "span";
+  class?: string;
+  speed?: number;
+  loop?: boolean;
+  fontSize?: string;
+}
+
+const { family } = caveatBundle;
+
+const {
+  text,
+  as: Tag = "span",
+  class: className = "",
+  speed = 1.5,
+  loop = false,
+  fontSize = "inherit",
+} = Astro.props;
+
+if (!text) return;
+---
+
+<Tag class={`tegaki-text ${className}`}>
+  <TegakiRenderer
+    font={family}
+    text={text}
+    time={{ mode: "uncontrolled", speed, loop }}
+    style={{ fontSize, display: "inline-block", width: "100%" }}
+  />
+</Tag>
