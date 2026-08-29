@@ -11,6 +11,13 @@ Astro website for Sans Frontieres, a game studio. Formerly React + Vite, fully m
 - **Build system**: Astro (static output)
 - **Deployment**: GitHub Pages at `https://SansFrontieresGames.github.io`
 
+## Core Rules
+
+- If a task matches a skill, invoke it with the `skill` tool before acting.
+- Skills are located in `.opencode/skills/<skill-name>/SKILL.md`.
+- Follow the skill workflow strictly; do not partially apply it.
+- Never skip required steps such as spec, plan, or test when a skill demands them.
+
 ## Commands
 
 | Command | What it does |
