@@ -19,9 +19,9 @@
     "tegaki": "^0.18.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
+    "@eslint/js": "^9.39.5",
     "astro": "^7.2.9",
-    "eslint": "^9.39.4",
+    "eslint": "^9.39.5",
     "gh-pages": "^6.3.0",
     "globals": "^16.5.0"
   }
